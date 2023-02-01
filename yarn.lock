@@ -3038,6 +3038,18 @@ aesirx-dma-lib@^1.7.5:
     qs "^6.10.1"
     query-string "^7.1.1"
 
+aesirx-dma-lib@^1.7.6:
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/aesirx-dma-lib/-/aesirx-dma-lib-1.7.6.tgz#0b2273188b99eba5c597d6c80e49f693970a763e"
+  integrity sha512-uj+/lmm20yo+rucx7XIqOPLzklKJ/XNmUErXgLvk8h65m43sA0Vs6jiyh3tGKUTWn1UxkAH6X91o2SDh02u0Yw==
+  dependencies:
+    axios "^0.21.0"
+    axios-auth-refresh "^3.0.0"
+    crypto-js "^4.1.1"
+    css-minimizer-webpack-plugin "^4.0.0"
+    qs "^6.10.1"
+    query-string "^7.1.1"
+
 aesirx-sso@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/aesirx-sso/-/aesirx-sso-1.0.3.tgz#060f99d242b222ea18f9f6e8429f29d88d0ed173"

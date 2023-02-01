@@ -15,7 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.1.12",
     "aesirx-dam-app": "^1.2.1",
     "aesirx-dma-app": "^1.6.2",
-    "aesirx-dma-lib": "^1.7.5",
+    "aesirx-dma-lib": "^1.7.6",
     "aesirx-sso": "^1.0.3",
     "axios": "^0.21.0",
     "bootstrap": "^5.2.2",
