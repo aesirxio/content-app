@@ -63,8 +63,7 @@
   },
   "scripts": {
     "start": "yarn run build && serve -s build",
-    "build": "yarn run build:ckeditor && yarn run build:lib && react-scripts build",
-    "build:lib": "cd node_modules/aesirx-dma-lib && yarn install && yarn run build && cd ../../",
+    "build": "yarn run build:ckeditor && react-scripts build",
     "build:ckeditor": "cd src/ckeditor && npm run build && cd ../../",
     "test": "react-scripts test",
     "dev": "react-scripts start",
