@@ -1,0 +1,34 @@
+@import '../../scss/utils/bootstrap.scss';
+
+.wrapper_banner_left {
+  @include bg;
+}
+
+.content_banner_left {
+  background-color: rgba(0, 0, 0, 0.7);
+  // background: url(./background.png) no-repeat;
+  background-position: right;
+  background-size: cover;
+  .swiper-pagination-bullet {
+    background: $white;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $green;
+  }
+  .wrapper_slider {
+    padding: 30px 60px;
+  }
+}
+
+.wrapper_text_slider {
+  color: $white;
+
+  .text_slider {
+    font-size: 1.5rem;
+  }
+}
+.max-w600 {
+  max-width: 600px !important;
+}
