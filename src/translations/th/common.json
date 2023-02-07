@@ -105,5 +105,7 @@
   "txt_error": "ข้อผิดพลาด",
   "txt_successfuly":"เรียบร้อยแล้ว",
   "txt_unsuccess": "ไม่สำเร็จ",
-  "txt_delete_success": "ลบสำเร็จ"
+  "txt_delete_success": "ลบสำเร็จ",
+  "txt_migrator": "Migrator"
+
 }

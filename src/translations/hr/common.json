@@ -105,5 +105,7 @@
   "txt_error": "Greška",
   "txt_successfuly":"Uspješno",
   "txt_unsuccess": "Neuspješno",
-  "txt_delete_success": "Uspješno brisanje"
+  "txt_delete_success": "Uspješno brisanje",
+  "txt_migrator": "Migrator"
+
 }

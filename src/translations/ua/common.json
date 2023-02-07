@@ -105,5 +105,7 @@
      "txt_error": "Помилка",
      "txt_successfuly":"Успішно",
      "txt_unsuccess": "Безуспішно",
-     "txt_delete_success": "Видалити успішно"
+     "txt_delete_success": "Видалити успішно",
+     "txt_migrator": "Migrator"
+
   }

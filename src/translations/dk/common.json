@@ -105,5 +105,6 @@
   "txt_error": "Fejl",
   "txt_successfuly":"Succesfuldt",
   "txt_unsuccess": "Forgæves",
-  "txt_delete_success": "Slet med succes"
+  "txt_delete_success": "Slet med succes",
+  "txt_migrator": "Migrator"
 }

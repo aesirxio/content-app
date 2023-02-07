@@ -105,5 +105,7 @@
   "txt_error": "Error",
   "txt_successfuly":"ErrorCon éxito",
   "txt_unsuccess": "sin éxito",
-  "txt_delete_success": "Eliminar con éxito"
+  "txt_delete_success": "Eliminar con éxito",
+  "txt_migrator": "Migrator"
+  
 }
