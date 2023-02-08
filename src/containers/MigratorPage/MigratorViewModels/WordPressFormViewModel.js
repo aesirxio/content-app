@@ -7,11 +7,17 @@ import { makeAutoObservable } from 'mobx';
 
 class WordPressFormViewModel {
   migratorStore = null;
-
+  formPropsData = {
+    type: 'WORDPRESS',
+  };
   constructor(migratorStore) {
     makeAutoObservable(this);
     this.migratorStore = migratorStore;
   }
+  resetData = () => {
+    this.formPropsData = { type: 'WORDPRESS' };
+  };
+  migratorData = () => {};
 }
 
 export default WordPressFormViewModel;
