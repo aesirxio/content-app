@@ -7,16 +7,18 @@ import { makeAutoObservable } from 'mobx';
 
 class JoomlaFormViewModel {
   migratorStore = null;
-  formPropsData = {
-    type: 'JOOMLA',
-  };
+  processPercent = 0;
+  type = 'JOOMLA';
+  formPropsData = {};
 
   constructor(migratorStore) {
     makeAutoObservable(this);
     this.migratorStore = migratorStore;
   }
 
-  migratorData = () => {};
+  migratorData = () => {
+    this.migratorStore.migratorData();
+  };
 }
 
 export default JoomlaFormViewModel;

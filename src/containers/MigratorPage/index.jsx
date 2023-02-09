@@ -34,7 +34,7 @@ const MigratorPage = observer(
                 initialStep={1}
               >
                 <JoomlaForm match={this.match} />
-                <MergeDataPage />
+                <MergeDataPage viewModel={migratorViewModel?.getJoomlaFormViewModel()} />
               </StepWizard>
             </Route>
             <Route exact path="/migrator/wordpress">
@@ -49,7 +49,7 @@ const MigratorPage = observer(
                 initialStep={1}
               >
                 <WordPressForm match={this.match} />
-                <MergeDataPage />
+                <MergeDataPage viewModel={migratorViewModel?.getWordPressFormViewModel()} />
               </StepWizard>
             </Route>
           </div>
