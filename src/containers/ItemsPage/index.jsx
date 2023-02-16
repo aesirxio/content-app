@@ -10,6 +10,9 @@ import ItemsStore from './ItemsStore/ItemsStore';
 import { ItemsViewModelContextProvider } from './ItemsViewModels/ItemsViewModelContextProvider';
 import ItemsListViewModel from './ItemsViewModels/ItemsListViewModel';
 import history from 'routes/history';
+import { Logger } from 'tslog';
+import { Joomla } from 'aesirx-cms-migrator';
+
 const List = lazy(() => import('./Component/List'));
 const itemsStore = new ItemsStore();
 const itemsListViewModel = new ItemsListViewModel(itemsStore);
@@ -18,7 +21,11 @@ const Dashboard = observer(() => {
   // const [showModal, setShowModal] = useState(false);
 
   const { t } = useTranslation('common');
-  return (
+
+  const log = new Logger();
+  log.silly('I am a silly log.');
+
+  new Joomla().return(
     <>
       <ItemsViewModelContextProvider viewModel={itemsListViewModel}>
         {/* <SelectContentType showModal={showModal} setShowModal={setShowModal} /> */}
