@@ -15,7 +15,7 @@ class WordPressFormViewModel {
     this.migratorStore = migratorStore;
   }
   migratorData = () => {
-    this.migratorStore.migratorData();
+    this.migratorStore.migratorData(this.type, this.formPropsData);
   };
 }
 

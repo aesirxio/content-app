@@ -17,7 +17,7 @@ class JoomlaFormViewModel {
   }
 
   migratorData = () => {
-    this.migratorStore.migratorData();
+    this.migratorStore.migratorData(this.type, this.formPropsData);
   };
 }
 
