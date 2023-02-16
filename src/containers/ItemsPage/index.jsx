@@ -11,6 +11,7 @@ import { ItemsViewModelContextProvider } from './ItemsViewModels/ItemsViewModelC
 import ItemsListViewModel from './ItemsViewModels/ItemsListViewModel';
 import history from 'routes/history';
 import { Logger } from 'tslog';
+import { Joomla } from 'aesirx-cms-migrator';
 
 const List = lazy(() => import('./Component/List'));
 const itemsStore = new ItemsStore();
@@ -24,7 +25,7 @@ const Dashboard = observer(() => {
   const log = new Logger();
   log.silly('I am a silly log.');
 
-  return (
+  new Joomla().return(
     <>
       <ItemsViewModelContextProvider viewModel={itemsListViewModel}>
         {/* <SelectContentType showModal={showModal} setShowModal={setShowModal} /> */}
