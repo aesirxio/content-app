@@ -32,9 +32,7 @@ const JoomlaForm = observer(
       }
       this.setState({ loading: false });
     };
-    componentWillUnmount() {
-      console.log('test');
-    }
+
     render() {
       const { loading } = this.state;
       return (
@@ -56,7 +54,6 @@ const JoomlaForm = observer(
                       changed: (e) => {
                         this.joomlaFormViewmodel.formPropsData['joomla_bearer_token'] =
                           e.target.value;
-                        console.log(e.target.value);
                       },
                       blurred: () => {
                         this.validator.showMessageFor('Joomla Bearer Token');
@@ -83,7 +80,6 @@ const JoomlaForm = observer(
                       value: this.joomlaFormViewmodel.formPropsData['joomla_api_url'],
                       changed: (e) => {
                         this.joomlaFormViewmodel.formPropsData['joomla_api_url'] = e.target.value;
-                        console.log(e.target.value);
                       },
                       blurred: () => {
                         this.validator.showMessageFor('Joomla API URL');

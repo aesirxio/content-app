@@ -25,20 +25,18 @@ class Joomla {
         additionalHeaders: {
           'Content-Type': 'application/json; charset=utf-8',
         },
-        queryParameters: {
-          params: {
-            ...{
-              page: {
-                limit: this.limit,
-                offset: offset,
-              },
-              list: {
-                ordering: 'id',
-                direction: 'asc',
-              },
+        params: {
+          ...{
+            page: {
+              limit: this.limit,
+              offset: offset,
             },
-            ...params,
+            list: {
+              ordering: 'id',
+              direction: 'asc',
+            },
           },
+          ...params,
         },
       };
       const restRes = await axios.get(this.joomla_api_url + url, options);

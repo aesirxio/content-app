@@ -20,7 +20,6 @@ class AesirX {
     this.apiDomain = apiDomain;
     this.remotePrefix = remotePrefix;
   }
-
   setRemoteEntityId(localId, entityName, remoteKey) {
     this.ref[entityName][localId] = remoteKey;
   }

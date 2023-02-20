@@ -21,16 +21,14 @@ export class Wordpress {
         additionalHeaders: {
           'Content-Type': 'application/json; charset=utf-8',
         },
-        queryParameters: {
-          params: {
-            ...{
-              per_page: this.limit,
-              page: page,
-              order: 'asc',
-              orderby: 'id',
-            },
-            ...params,
+        params: {
+          ...{
+            per_page: this.limit,
+            page: page,
+            order: 'asc',
+            orderby: 'id',
           },
+          ...params,
         },
       };
       const restRes = await axios.get(this.wordpress_api_url + url, options);

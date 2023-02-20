@@ -11,11 +11,11 @@ const mergeData = (aesirx_migrate_type, aesirx_bearer_token, data) => {
     );
     switch (aesirx_migrate_type) {
       case 'WORDPRESS':
-        new Wordpress(aesirx, 'aesirx_migrator', data?.wordpress_api_url).runAll();
+        new Wordpress(aesirx, data?.wordpress_api_url).runAll();
         break;
       case 'JOOMLA':
       default:
-        new Joomla(aesirx, data?.joomla_bearer_token, data?.joomla_api_url).runAll();
+        new Joomla(aesirx, data?.joomla_api_url, data?.joomla_bearer_token).runAll();
         break;
     }
   } catch (error) {
