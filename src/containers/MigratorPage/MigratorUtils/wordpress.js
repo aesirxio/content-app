@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { Entity } from './aesirx';
 
-export class Wordpress {
+const WORDPRESS_FIELDS = {
+  URL: 'wordpress_api_url',
+};
+class Wordpress {
   wordpress_api_url;
   limit = 20;
   aesirx;
@@ -158,3 +161,5 @@ export class Wordpress {
     await this.runPages();
   }
 }
+
+export { Wordpress, WORDPRESS_FIELDS };

@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const Entity = {
-  Category: '&view=category_with_org_check_aesirx_categories_69',
-  Tag: '&view=category_with_org_check_aesirx_tags_70',
-  Item: '&view=item_with_org_check_aesirx_content_68',
+  Category: 'Category',
+  Tag: 'Tag',
+  Item: 'Item',
 };
 
 class AesirX {
@@ -15,6 +15,11 @@ class AesirX {
       Category: {},
       Tag: {},
       Item: {},
+    };
+    this.entityUrlPart = {
+      [Entity.Category]: '&view=category_with_org_check_aesirx_categories_69',
+      [Entity.Tag]: '&view=category_with_org_check_aesirx_tags_70',
+      [Entity.Item]: '&view=item_with_org_check_aesirx_content_68',
     };
     this.aesirx_bearer_token = aesirx_bearer_token;
     this.apiDomain = apiDomain;
@@ -50,7 +55,7 @@ class AesirX {
 
     let use = { ...resource };
     use.remote_key = this.remotePrefix + '|' + use.remote_key;
-
+    console.log('resource', resource.id);
     // Update
     if (resource.id) {
       const restTo = await axios.put(
@@ -60,7 +65,8 @@ class AesirX {
           acceptHeader: '*/*',
         }
       );
-      if (restTo.statusCode != 200 || !restTo.result) {
+      console.log('Update', restTo);
+      if (restTo.status != 200 || !restTo.result) {
         throw new Error('Entity was not created');
       }
 
@@ -79,7 +85,8 @@ class AesirX {
           },
         }
       );
-      if (restTo.statusCode != 201 || !restTo.result) {
+      console.log('Create', restTo);
+      if (restTo.status != 201 || !restTo.result) {
         throw new Error('Entity was not created');
       }
 
@@ -108,11 +115,12 @@ class AesirX {
           },
         }
       );
+      console.log('getRemoteEntityId', restRes);
 
-      if (restRes.statusCode != 200 || !restRes.result) {
+      if (restRes.status != 200 || !restRes.data) {
         throw new Error('Data not found');
       }
-      this.setRemoteEntityId(localId, entityName, restRes.result._embedded.item[0].id);
+      this.setRemoteEntityId(localId, entityName, restRes.data._embedded.item[0].id);
     }
 
     return this.ref[entityName][localId];

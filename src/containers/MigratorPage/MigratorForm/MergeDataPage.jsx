@@ -13,7 +13,7 @@ const MergeDataPage = observer(
       };
     }
     handleClick = () => {
-      this.setState({ isMerging: true });
+      // this.setState({ isMerging: true });
       this.viewModel.migratorData();
     };
     render() {

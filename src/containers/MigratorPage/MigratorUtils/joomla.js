@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { Entity } from './aesirx';
 
+const JOOMLA_FIELDS = {
+  URL: 'joomla_api_url',
+  TOKEN: 'joomla_bearer_token',
+};
+
 class Joomla {
   joomla_api_url;
   joomla_bearer_token;
@@ -27,27 +32,24 @@ class Joomla {
         },
         params: {
           ...{
-            page: {
-              limit: this.limit,
-              offset: offset,
-            },
-            list: {
-              ordering: 'id',
-              direction: 'asc',
-            },
+            'page[limit]': this.limit,
+            'page[offset]': offset,
+            'list[ordering]': 'id',
+            'list[direction]': 'asc',
           },
           ...params,
         },
       };
       const restRes = await axios.get(this.joomla_api_url + url, options);
 
-      if (restRes.statusCode != 200 || !restRes.result) {
-        throw new Error('Data not found');
+      if (restRes.status != 200 || !restRes?.data?.data) {
+        console.log("Don't have data");
+        break;
       }
 
       // Probably less heavier for frontend executions
       // https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971#process-each-player-in-serial-using-arrayprototypereduce
-      await restRes.result.data.reduce(async (prev, item) => {
+      await restRes.data.data.reduce(async (prev, item) => {
         // Wait for the previous item to finish processing
         await prev;
         // Process this item
@@ -56,7 +58,7 @@ class Joomla {
 
       offset += this.limit;
 
-      if (restRes.result.links.next === undefined) {
+      if (!restRes?.result?.links?.next) {
         break;
       }
     }
@@ -65,10 +67,8 @@ class Joomla {
     await this.run(
       '/api/index.php/v1/content/categories',
       {
-        list: {
-          ordering: 'a.lft',
-          direction: 'asc',
-        },
+        'list[ordering]': 'a.lft',
+        'list[direction]': 'asc',
       },
       async (item) => {
         const resource = {
@@ -97,10 +97,8 @@ class Joomla {
     await this.run(
       '/api/index.php/v1/content/articles',
       {
-        list: {
-          ordering: 'a.id',
-          direction: 'asc',
-        },
+        'list[ordering]': 'a.id',
+        'list[direction]': 'asc',
       },
       async (item) => {
         const resource = {
@@ -141,10 +139,8 @@ class Joomla {
     await this.run(
       '/api/index.php/v1/tags',
       {
-        list: {
-          ordering: 'a.lft',
-          direction: 'asc',
-        },
+        'list[ordering]': 'a.lft',
+        'list[direction]': 'asc',
       },
       async (item) => {
         const resource = {
@@ -172,4 +168,4 @@ class Joomla {
     await this.runContents();
   }
 }
-export { Joomla };
+export { Joomla, JOOMLA_FIELDS };

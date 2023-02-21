@@ -6,12 +6,13 @@ import SimpleReactValidator from 'simple-react-validator';
 import { observer } from 'mobx-react';
 import { notify } from 'components/Toast';
 import { withMigratorViewModel } from '../MigratorViewModels/MigratorViewModelContextProvider';
+import { JOOMLA_FIELDS } from '../MigratorUtils/joomla';
 const JoomlaForm = observer(
   class JoomlaForm extends Component {
     joomlaFormViewmodel = '';
     formPropsData = {
-      joomla_bearer_token: '',
-      joomla_api_url: '',
+      [JOOMLA_FIELDS.URL]: '',
+      [JOOMLA_FIELDS.TOKEN]: '',
     };
     constructor(props) {
       super(props);
@@ -50,9 +51,9 @@ const JoomlaForm = observer(
                   <Input
                     field={{
                       type: FORM_FIELD_TYPE.INPUT,
-                      value: this.joomlaFormViewmodel.formPropsData['joomla_bearer_token'],
+                      value: this.joomlaFormViewmodel.formPropsData[JOOMLA_FIELDS.TOKEN],
                       changed: (e) => {
-                        this.joomlaFormViewmodel.formPropsData['joomla_bearer_token'] =
+                        this.joomlaFormViewmodel.formPropsData[JOOMLA_FIELDS.TOKEN] =
                           e.target.value;
                       },
                       blurred: () => {
@@ -62,7 +63,7 @@ const JoomlaForm = observer(
                   />
                   {this.validator.message(
                     'Joomla Bearer Token',
-                    this.joomlaFormViewmodel?.formPropsData['joomla_bearer_token'],
+                    this.joomlaFormViewmodel?.formPropsData[JOOMLA_FIELDS.TOKEN],
                     'required',
                     {
                       className: 'text-danger mt-1',
@@ -77,9 +78,9 @@ const JoomlaForm = observer(
                   <Input
                     field={{
                       type: FORM_FIELD_TYPE.INPUT,
-                      value: this.joomlaFormViewmodel.formPropsData['joomla_api_url'],
+                      value: this.joomlaFormViewmodel.formPropsData[JOOMLA_FIELDS.URL],
                       changed: (e) => {
-                        this.joomlaFormViewmodel.formPropsData['joomla_api_url'] = e.target.value;
+                        this.joomlaFormViewmodel.formPropsData[JOOMLA_FIELDS.URL] = e.target.value;
                       },
                       blurred: () => {
                         this.validator.showMessageFor('Joomla API URL');
@@ -88,7 +89,7 @@ const JoomlaForm = observer(
                   />
                   {this.validator.message(
                     'Joomla API URL',
-                    this.joomlaFormViewmodel?.formPropsData['joomla_api_url'],
+                    this.joomlaFormViewmodel?.formPropsData[JOOMLA_FIELDS.URL],
                     'required',
                     {
                       className: 'text-danger mt-1',

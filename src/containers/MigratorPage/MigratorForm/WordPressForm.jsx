@@ -6,7 +6,7 @@ import SimpleReactValidator from 'simple-react-validator';
 import { observer } from 'mobx-react';
 import { notify } from 'components/Toast';
 import { withMigratorViewModel } from '../MigratorViewModels/MigratorViewModelContextProvider';
-
+import { WORDPRESS_FIELDS } from '../MigratorUtils/wordpress';
 const WordPressForm = observer(
   class WordPressForm extends Component {
     wordPressFormViewModel = '';
@@ -35,7 +35,7 @@ const WordPressForm = observer(
 
     render() {
       const { loading } = this.state;
-
+      console.log(WORDPRESS_FIELDS['URL']);
       return (
         <>
           <h2 className="text-blue-0 fw-bold mb-4">Migrator WordPress Data</h2>
