@@ -4,6 +4,7 @@
  */
 
 import { makeAutoObservable } from 'mobx';
+import { notify } from 'components/Toast';
 
 class JoomlaFormViewModel {
   migratorStore = null;
@@ -16,8 +17,20 @@ class JoomlaFormViewModel {
     this.migratorStore = migratorStore;
   }
 
-  migratorData = () => {
-    this.migratorStore.migratorData(this.type, this.formPropsData);
+  migratorData = async () => {
+    await this.migratorStore.migratorData(
+      this.type,
+      this.formPropsData,
+      this.callbackOnSucessHandler,
+      this.callbackOnErrorHandler
+    );
+  };
+  callbackOnSucessHandler = () => {
+    this.processPercent == 100;
+    notify('Migrator data successfully !');
+  };
+  callbackOnErrorHandler = () => {
+    notify('Something when wrong !', 'error');
   };
 }
 

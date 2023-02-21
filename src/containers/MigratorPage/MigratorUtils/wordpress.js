@@ -35,25 +35,25 @@ class Wordpress {
         },
       };
       const restRes = await axios.get(this.wordpress_api_url + url, options);
-
-      if (restRes.statusCode != 200 || restRes.result === null) {
-        throw new Error('Data not found');
+      if (restRes.status != 200 || !restRes?.data) {
+        console.log("Don't have data");
+        break;
       }
 
-      if (restRes.result.length == 0) {
+      if (restRes.data.length == 0) {
         break;
       }
 
       // Probably less heavier for frontend executions
       // https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971#process-each-player-in-serial-using-arrayprototypereduce
-      await restRes.result.reduce(async (prev, item) => {
+      await restRes.data.reduce(async (prev, item) => {
         // Wait for the previous item to finish processing
         await prev;
         // Process this item
         await done(item);
       }, Promise.resolve());
 
-      if (restRes.result.length < this.limit) {
+      if (restRes.data.length < this.limit) {
         break;
       }
 
@@ -88,8 +88,7 @@ class Wordpress {
             resource.parent_id = await this.aesirx.getRemoteEntityId(item.parent, Entity.Category);
           }
 
-          const remoteId = await this.aesirx.create(Entity.Category, resource);
-          console.log(remoteId);
+          await this.aesirx.create(Entity.Category, resource);
           parents.push(item.id);
         }
       );
@@ -135,9 +134,7 @@ class Wordpress {
         excerpt: item.excerpt.rendered,
         remote_key: item.id,
       };
-
-      const remoteId = await this.aesirx.create(Entity.Item, resource);
-      console.log(remoteId);
+      await this.aesirx.create(Entity.Item, resource);
     });
   }
 
@@ -148,9 +145,7 @@ class Wordpress {
         description: item.description,
         remote_key: item.id,
       };
-
-      const remoteId = await this.aesirx.create(Entity.Tag, resource);
-      console.log(remoteId);
+      await this.aesirx.create(Entity.Tag, resource);
     });
   }
 

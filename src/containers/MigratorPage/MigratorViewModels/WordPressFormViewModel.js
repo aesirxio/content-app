@@ -3,6 +3,7 @@
  * @license     GNU General Public License version 3, see LICENSE.
  */
 
+import { notify } from 'components/Toast';
 import { makeAutoObservable } from 'mobx';
 
 class WordPressFormViewModel {
@@ -15,7 +16,18 @@ class WordPressFormViewModel {
     this.migratorStore = migratorStore;
   }
   migratorData = () => {
-    this.migratorStore.migratorData(this.type, this.formPropsData);
+    this.migratorStore.migratorData(
+      this.type,
+      this.formPropsData,
+      this.callbackOnSucessHandler,
+      this.callbackOnErrorHandler
+    );
+  };
+  callbackOnSucessHandler = () => {
+    notify('Migrator data successfully !');
+  };
+  callbackOnErrorHandler = () => {
+    notify('Something when wrong !', 'error');
   };
 }
 

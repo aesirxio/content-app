@@ -82,9 +82,7 @@ class Joomla {
             Entity.Category
           );
         }
-
-        const remoteId = await this.aesirx.create(Entity.Category, resource);
-        console.log(remoteId);
+        await this.aesirx.create(Entity.Category, resource);
       }
     );
   }
@@ -155,9 +153,7 @@ class Joomla {
             Entity.Tag
           );
         }
-
-        const remoteId = await this.aesirx.create(Entity.Tag, resource);
-        console.log(remoteId);
+        await this.aesirx.create(Entity.Tag, resource);
       }
     );
   }

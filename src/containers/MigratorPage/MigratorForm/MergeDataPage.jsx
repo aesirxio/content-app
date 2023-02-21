@@ -12,9 +12,10 @@ const MergeDataPage = observer(
         isMerging: false,
       };
     }
-    handleClick = () => {
-      // this.setState({ isMerging: true });
-      this.viewModel.migratorData();
+    handleClick = async () => {
+      this.setState({ isMerging: true });
+      await this.viewModel.migratorData();
+      this.setState({ isMerging: false });
     };
     render() {
       const { previousStep } = this.props;
@@ -33,18 +34,16 @@ const MergeDataPage = observer(
                   {isMerging ? 'Merging...' : 'Merge Data'}
                 </Button>
               </div>
-              {this.viewModel?.processPercent ? (
-                <div className="col-10">
-                  <ProgressBar
-                    className="fw-bold"
-                    striped
-                    animated
-                    variant="success"
-                    now={this.viewModel?.processPercent}
-                    label={`${this.viewModel?.processPercent}%`}
-                  />
-                </div>
-              ) : null}
+              <div className="col-10">
+                <ProgressBar
+                  className="fw-bold"
+                  striped
+                  animated
+                  variant="success"
+                  now={this.viewModel.processPercent}
+                  label={`${this.viewModel?.processPercent}%`}
+                />
+              </div>
             </div>
           </div>
           <Button

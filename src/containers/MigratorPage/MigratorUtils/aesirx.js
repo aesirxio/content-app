@@ -42,7 +42,7 @@ class AesirX {
     );
 
     if (restTo.statusCode != 200 || !restTo.result) {
-      throw new Error('Entity was not created');
+      console.warn('Entity was not created');
     }
   }
 
@@ -55,7 +55,7 @@ class AesirX {
 
     let use = { ...resource };
     use.remote_key = this.remotePrefix + '|' + use.remote_key;
-    console.log('resource', resource.id);
+
     // Update
     if (resource.id) {
       const restTo = await axios.put(
@@ -63,14 +63,17 @@ class AesirX {
         use,
         {
           acceptHeader: '*/*',
+          headers: {
+            Authorization: 'Bearer ' + this.aesirx_bearer_token,
+          },
         }
       );
-      console.log('Update', restTo);
-      if (restTo.status != 200 || !restTo.result) {
-        throw new Error('Entity was not created');
-      }
 
-      this.ref[entityName][resource.remote_key] = resource.id;
+      if (restTo.status != 200 || !restTo.result) {
+        console.warn('Entity was not created');
+      } else {
+        this.ref[entityName][resource.remote_key] = resource.id;
+      }
     }
 
     // Create
@@ -85,12 +88,11 @@ class AesirX {
           },
         }
       );
-      console.log('Create', restTo);
       if (restTo.status != 201 || !restTo.result) {
-        throw new Error('Entity was not created');
+        console.warn('Entity was not created');
+      } else {
+        this.ref[entityName][resource.remote_key] = restTo.result.id;
       }
-
-      this.ref[entityName][resource.remote_key] = restTo.result.id;
     }
 
     return this.ref[entityName][resource.remote_key];
@@ -115,12 +117,12 @@ class AesirX {
           },
         }
       );
-      console.log('getRemoteEntityId', restRes);
 
       if (restRes.status != 200 || !restRes.data) {
-        throw new Error('Data not found');
+        console.warn('Data not found');
+      } else {
+        this.setRemoteEntityId(localId, entityName, restRes.data._embedded.item[0].id);
       }
-      this.setRemoteEntityId(localId, entityName, restRes.data._embedded.item[0].id);
     }
 
     return this.ref[entityName][localId];
