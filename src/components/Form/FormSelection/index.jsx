@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import SelectComponent from "../../../components/Select";
-import "./index.scss";
+import SelectComponent from '../../../components/Select';
+import './index.scss';
 
 class FormSelection extends Component {
   constructor(props) {

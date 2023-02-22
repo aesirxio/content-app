@@ -10,6 +10,7 @@ import ItemsStore from './ItemsStore/ItemsStore';
 import { ItemsViewModelContextProvider } from './ItemsViewModels/ItemsViewModelContextProvider';
 import ItemsListViewModel from './ItemsViewModels/ItemsListViewModel';
 import history from 'routes/history';
+
 const List = lazy(() => import('./Component/List'));
 const itemsStore = new ItemsStore();
 const itemsListViewModel = new ItemsListViewModel(itemsStore);
