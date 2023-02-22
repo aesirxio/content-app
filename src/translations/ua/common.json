@@ -106,6 +106,9 @@
      "txt_successfuly":"Успішно",
      "txt_unsuccess": "Безуспішно",
      "txt_delete_success": "Видалити успішно",
-     "txt_migrator": "Migrator"
-
+     "txt_migrator": "Переселенець",
+     "txt_migrator_wordpress": "Мігратор даних WordPress",
+     "txt_migrator_joomla": "Мігратор даних Joomla",
+     "txt_next_step": "Наступний крок",
+     "txt_previous_step": "Попередній крок"
   }

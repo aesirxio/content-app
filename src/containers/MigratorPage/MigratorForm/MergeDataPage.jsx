@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { observer } from 'mobx-react';
+import { withTranslation } from 'react-i18next';
 
 const MergeDataPage = observer(
   class MergeDataPage extends Component {
@@ -29,7 +30,7 @@ const MergeDataPage = observer(
       this.setState({ isMerging: false });
     };
     render() {
-      const { previousStep } = this.props;
+      const { previousStep, t } = this.props;
       const { isMerging, percent } = this.state;
       return (
         <>
@@ -62,11 +63,11 @@ const MergeDataPage = observer(
             variant="outline-secondary"
             className=" fs-14 fw-semibold p-2 mt-4"
           >
-            Previous Step
+            {t('txt_previous_step')}
           </Button>
         </>
       );
     }
   }
 );
-export default MergeDataPage;
+export default withTranslation('common')(MergeDataPage);

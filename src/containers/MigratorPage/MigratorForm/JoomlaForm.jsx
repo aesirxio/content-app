@@ -7,6 +7,7 @@ import { observer } from 'mobx-react';
 import { notify } from 'components/Toast';
 import { withMigratorViewModel } from '../MigratorViewModels/MigratorViewModelContextProvider';
 import { JOOMLA_FIELDS } from '../MigratorUtils/joomla';
+import { withTranslation } from 'react-i18next';
 const JoomlaForm = observer(
   class JoomlaForm extends Component {
     joomlaFormViewmodel = '';
@@ -35,10 +36,11 @@ const JoomlaForm = observer(
     };
 
     render() {
+      const { t } = this.props;
       const { loading } = this.state;
       return (
         <>
-          <h2 className="text-blue-0 fw-bold mb-4">Migrator Joomla Data</h2>
+          <h2 className="text-blue-0 fw-bold mb-4">{t('txt_migrator_joomla')}</h2>
 
           <div className="bg-white p-4 rounded-2">
             <div className="row justify-content-between align-items-end mb-3">
@@ -104,7 +106,7 @@ const JoomlaForm = observer(
                   className="fw-semibold rounded-1 px-4"
                   onClick={this.hanldeClick}
                 >
-                  Submit
+                  {t('txt_next_step')}
                 </Button>
               </div>
             </div>
@@ -114,4 +116,4 @@ const JoomlaForm = observer(
     }
   }
 );
-export default withMigratorViewModel(JoomlaForm);
+export default withTranslation('common')(withMigratorViewModel(JoomlaForm));

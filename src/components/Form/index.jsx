@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import SimpleReactValidator from 'simple-react-validator';
-import { Form } from 'react-bootstrap';
+// import { Form } from 'react-bootstrap';
 
 import { renderingGroupFieldHandler } from '../../utils/form';
 
@@ -43,17 +43,17 @@ class FormComponent extends Component {
   renderingFormHandler = (formSetting) => {
     return (
       <>
-        <Form key={Math.random(40, 200)} className={this.props.formClassName}>
-          {Object.keys(formSetting)
-            .map((groupIndex) => {
-              return [...Array(formSetting[groupIndex])].map((group) => {
-                return renderingGroupFieldHandler(group, this.validator);
-              });
-            })
-            .reduce((arr, el) => {
-              return arr.concat(el);
-            }, [])}
-        </Form>
+        {/* <Form key={Math.random(40, 200)} className={this.props.formClassName}> */}
+        {Object.keys(formSetting)
+          .map((groupIndex) => {
+            return [...Array(formSetting[groupIndex])].map((group) => {
+              return renderingGroupFieldHandler(group, this.validator);
+            });
+          })
+          .reduce((arr, el) => {
+            return arr.concat(el);
+          }, [])}
+        {/* </Form> */}
       </>
     );
   };

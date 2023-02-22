@@ -105,6 +105,9 @@
   "txt_successfuly":"Thành công",
   "txt_unsuccess": "Không thành công",
   "txt_delete_success": "Xóa thành công",
-  "txt_migrator": "Migrator"
-
+  "txt_migrator": "Chuyển đổi",
+  "txt_migrator_wordpress": "Chuyển đổi dữ liệu WordPress",
+  "txt_migrator_joomla": "Chuyển đổi dữ liệu Joomla",
+  "txt_next_step": "Bước tiếp theo",
+  "txt_previous_step": "Bước trước đó"
 }

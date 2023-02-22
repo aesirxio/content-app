@@ -7,6 +7,7 @@ import { observer } from 'mobx-react';
 import { notify } from 'components/Toast';
 import { withMigratorViewModel } from '../MigratorViewModels/MigratorViewModelContextProvider';
 import { WORDPRESS_FIELDS } from '../MigratorUtils/wordpress';
+import { withTranslation } from 'react-i18next';
 const WordPressForm = observer(
   class WordPressForm extends Component {
     wordPressFormViewModel = '';
@@ -34,10 +35,11 @@ const WordPressForm = observer(
     };
 
     render() {
+      const { t } = this.props;
       const { loading } = this.state;
       return (
         <>
-          <h2 className="text-blue-0 fw-bold mb-4">Migrator WordPress Data</h2>
+          <h2 className="text-blue-0 fw-bold mb-4">{t('txt_migrator_wordpress')}</h2>
           <div className="bg-white p-4 rounded-2">
             <div className="row justify-content-between align-items-end mb-3">
               <Form className="col-6">
@@ -76,7 +78,7 @@ const WordPressForm = observer(
                   className="fw-semibold rounded-1 px-4"
                   onClick={this.hanldeClick}
                 >
-                  Submit
+                  {t('txt_next_step')}
                 </Button>
               </div>
             </div>
@@ -86,4 +88,4 @@ const WordPressForm = observer(
     }
   }
 );
-export default withMigratorViewModel(WordPressForm);
+export default withTranslation('common')(withMigratorViewModel(WordPressForm));
