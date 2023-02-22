@@ -68,8 +68,7 @@ class AesirX {
           },
         }
       );
-
-      if (restTo.status != 200 || !restTo.result) {
+      if (restTo.status != 200 || !restTo.data) {
         console.warn('Entity was not created');
       } else {
         this.ref[entityName][resource.remote_key] = resource.id;
@@ -88,10 +87,10 @@ class AesirX {
           },
         }
       );
-      if (restTo.status != 201 || !restTo.result) {
+      if (restTo.status != 201 || !restTo.data) {
         console.warn('Entity was not created');
       } else {
-        this.ref[entityName][resource.remote_key] = restTo.result.id;
+        this.ref[entityName][resource.remote_key] = restTo.data.id;
       }
     }
 
@@ -119,7 +118,7 @@ class AesirX {
       );
 
       if (restRes.status != 200 || !restRes.data) {
-        console.warn('Data not found');
+        console.warn('Dont have remote entity');
       } else {
         this.setRemoteEntityId(localId, entityName, restRes.data._embedded.item[0].id);
       }

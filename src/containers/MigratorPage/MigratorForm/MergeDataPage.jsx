@@ -10,16 +10,27 @@ const MergeDataPage = observer(
       this.viewModel = props.viewModel;
       this.state = {
         isMerging: false,
+        percent: 0,
       };
     }
+    increasePercentPerSecond = () => {
+      if (this.state.percent < 99) {
+        this.setState({ percent: this.state.percent + 3 });
+      }
+    };
     handleClick = async () => {
       this.setState({ isMerging: true });
-      await this.viewModel.migratorData();
+      const increasePercent = setInterval(this.increasePercentPerSecond, 500);
+      const response = await this.viewModel.migratorData();
+      if (response) {
+        this.setState({ percent: 100 });
+      }
+      clearInterval(increasePercent);
       this.setState({ isMerging: false });
     };
     render() {
       const { previousStep } = this.props;
-      const { isMerging } = this.state;
+      const { isMerging, percent } = this.state;
       return (
         <>
           <div className="bg-white p-4 rounded-2 ">
@@ -40,8 +51,8 @@ const MergeDataPage = observer(
                   striped
                   animated
                   variant="success"
-                  now={this.viewModel.processPercent}
-                  label={`${this.viewModel?.processPercent}%`}
+                  now={percent}
+                  label={`${percent}%`}
                 />
               </div>
             </div>

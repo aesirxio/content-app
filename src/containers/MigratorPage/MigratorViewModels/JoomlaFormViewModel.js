@@ -8,7 +8,6 @@ import { notify } from 'components/Toast';
 
 class JoomlaFormViewModel {
   migratorStore = null;
-  processPercent = 0;
   type = 'JOOMLA';
   formPropsData = {};
 
@@ -18,7 +17,7 @@ class JoomlaFormViewModel {
   }
 
   migratorData = async () => {
-    await this.migratorStore.migratorData(
+    return await this.migratorStore.migratorData(
       this.type,
       this.formPropsData,
       this.callbackOnSucessHandler,

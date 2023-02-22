@@ -11,7 +11,7 @@ const WordPressForm = observer(
   class WordPressForm extends Component {
     wordPressFormViewModel = '';
     formPropsData = {
-      wordpress_api_url: '',
+      [WORDPRESS_FIELDS.URL]: '',
     };
     constructor(props) {
       super(props);
@@ -35,7 +35,6 @@ const WordPressForm = observer(
 
     render() {
       const { loading } = this.state;
-      console.log(WORDPRESS_FIELDS['URL']);
       return (
         <>
           <h2 className="text-blue-0 fw-bold mb-4">Migrator WordPress Data</h2>
@@ -50,11 +49,10 @@ const WordPressForm = observer(
                   <Input
                     field={{
                       type: FORM_FIELD_TYPE.INPUT,
-                      value: this.wordPressFormViewModel.formPropsData['wordpress_api_url'],
+                      value: this.wordPressFormViewModel.formPropsData[WORDPRESS_FIELDS.URL],
                       changed: (e) => {
-                        this.wordPressFormViewModel.formPropsData['wordpress_api_url'] =
+                        this.wordPressFormViewModel.formPropsData[WORDPRESS_FIELDS.URL] =
                           e.target.value;
-                        console.log(e.target.value);
                       },
                       blurred: () => {
                         this.validator.showMessageFor('WordPress API URL');
@@ -63,7 +61,7 @@ const WordPressForm = observer(
                   />
                   {this.validator.message(
                     'WordPress API URL',
-                    this.wordPressFormViewModel.formPropsData['wordpress_api_url'],
+                    this.wordPressFormViewModel.formPropsData[WORDPRESS_FIELDS.URL],
                     'required',
                     {
                       className: 'text-danger mt-1',

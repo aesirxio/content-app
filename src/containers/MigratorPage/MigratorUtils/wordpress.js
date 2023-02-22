@@ -36,7 +36,6 @@ class Wordpress {
       };
       const restRes = await axios.get(this.wordpress_api_url + url, options);
       if (restRes.status != 200 || !restRes?.data) {
-        console.log("Don't have data");
         break;
       }
 

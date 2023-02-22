@@ -8,15 +8,14 @@ import { makeAutoObservable } from 'mobx';
 
 class WordPressFormViewModel {
   migratorStore = null;
-  processPercent = 0;
   type = 'WORDPRESS';
   formPropsData = {};
   constructor(migratorStore) {
     makeAutoObservable(this);
     this.migratorStore = migratorStore;
   }
-  migratorData = () => {
-    this.migratorStore.migratorData(
+  migratorData = async () => {
+    return await this.migratorStore.migratorData(
       this.type,
       this.formPropsData,
       this.callbackOnSucessHandler,

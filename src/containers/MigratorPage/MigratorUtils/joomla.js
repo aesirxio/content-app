@@ -41,9 +41,7 @@ class Joomla {
         },
       };
       const restRes = await axios.get(this.joomla_api_url + url, options);
-
       if (restRes.status != 200 || !restRes?.data?.data) {
-        console.log("Don't have data");
         break;
       }
 
@@ -58,7 +56,7 @@ class Joomla {
 
       offset += this.limit;
 
-      if (!restRes?.result?.links?.next) {
+      if (!restRes?.data?.links?.next) {
         break;
       }
     }
@@ -90,6 +88,9 @@ class Joomla {
   async runContents() {
     const options = {
       acceptHeader: '*/*',
+      headers: {
+        Authorization: 'Bearer ' + this.joomla_bearer_token,
+      },
     };
 
     await this.run(
@@ -112,22 +113,21 @@ class Joomla {
           await this.aesirx.getRemoteEntityId(item.relationships.category.data.id, Entity.Category),
         ];
 
-        const restRes = await this.from.get(
-          '/api/index.php/v1/content/articles/' + item.id,
+        const restRes = await axios.get(
+          this.joomla_api_url + '/api/index.php/v1/content/articles/' + item.id,
           options
         );
+        if (restRes.status != 200 || !restRes.data) {
+          console.log('Joomla dont have contents');
+        } else {
+          const remoteId = await this.aesirx.create(Entity.Item, resource);
 
-        if (restRes.statusCode != 200 || !restRes.result) {
-          throw new Error('Data not found');
-        }
-
-        const remoteId = await this.aesirx.create(Entity.Item, resource);
-
-        for (const idx in restRes.result.data.attributes.tags) {
-          await this.aesirx.addTag({
-            content_id: remoteId,
-            tag_id: await this.aesirx.getRemoteEntityId(idx, Entity.Tag),
-          });
+          for (const idx in restRes.data.data.attributes.tags) {
+            await this.aesirx.addTag({
+              content_id: remoteId,
+              tag_id: await this.aesirx.getRemoteEntityId(idx, Entity.Tag),
+            });
+          }
         }
       }
     );
