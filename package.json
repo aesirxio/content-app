@@ -22,7 +22,7 @@
     "bootstrap": "^5.2.2",
     "d3-fetch": "^3.0.1",
     "date-fns": "^2.16.1",
-    "date-fns-tz": "^1.1.6",
+    "date-fns-tz": "^2.0.0",
     "emoji-mart": "^3.0.0",
     "file-saver": "^2.0.5",
     "gapi-script": "^1.2.0",
