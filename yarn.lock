@@ -3623,7 +3623,7 @@ aesirx-ckeditor@^1.0.0:
     tslog "^4.7.1"
     typed-rest-client "^1.8.9"
 
-aesirx-dam-app@^1.2.1, aesirx-dam-app@^1.2.3:
+aesirx-dam-app@^1.2.3, aesirx-dam-app@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/aesirx-dam-app/-/aesirx-dam-app-1.2.6.tgz#a19136e79c53d8cb1e230d8e2f87b47fef6be2ff"
   integrity sha512-I3Z0J4Ns5Mdn+EmXjtEnW0E+5qsMBIzAGoi+K8OdlmclbtQXR0TY4PlCKPS/cukC/RJUJgGp6J+Av/z84MckgA==
