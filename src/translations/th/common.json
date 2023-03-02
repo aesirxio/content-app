@@ -105,5 +105,10 @@
   "txt_error": "ข้อผิดพลาด",
   "txt_successfuly":"เรียบร้อยแล้ว",
   "txt_unsuccess": "ไม่สำเร็จ",
-  "txt_delete_success": "ลบสำเร็จ"
+  "txt_delete_success": "ลบสำเร็จ",
+  "txt_migrator": "ผู้อพยพ",
+  "txt_migrator_wordpress": "การย้ายข้อมูล WordPress",
+  "txt_migrator_joomla": "การย้ายข้อมูล Joomla",
+  "txt_next_step": "ขั้นตอนต่อไป",
+  "txt_previous_step": "ขั้นตอนก่อนหน้า"
 }

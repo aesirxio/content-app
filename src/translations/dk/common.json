@@ -105,5 +105,10 @@
   "txt_error": "Fejl",
   "txt_successfuly":"Succesfuldt",
   "txt_unsuccess": "Forgæves",
-  "txt_delete_success": "Slet med succes"
+  "txt_delete_success": "Slet med succes",
+  "txt_migrator": "Migrator",
+  "txt_migrator_wordpress": "Migrator WordPress Data",
+  "txt_migrator_joomla": "Migrator Joomla Data",
+  "txt_next_step": "Næste skridt",
+  "txt_previous_step": "Forrige trin"
 }

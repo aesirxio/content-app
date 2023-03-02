@@ -105,5 +105,11 @@
   "txt_error": "Erreur",
   "txt_successfuly":"Avec succès",
   "txt_unsuccess": "Sans succès",
-  "txt_delete_success": "Supprimer avec succès"
+  "txt_delete_success": "Supprimer avec succès",
+  "txt_migrator": "Migrateur",
+  "txt_migrator_wordpress": "Migrateur de données WordPress",
+  "txt_migrator_joomla": "Migration de données Joomla",
+  "txt_next_step": "L'étape suivante",
+  "txt_previous_step": "Étape précédente"
+
 }

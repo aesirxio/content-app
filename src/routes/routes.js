@@ -7,6 +7,7 @@ const ItemsPage = lazy(() => import('../containers/ItemsPage'));
 const ProfilePage = lazy(() => import('../containers/ProfilePage'));
 const CategoriesPage = lazy(() => import('../containers/Categories'));
 const DamPage = lazy(() => import('../containers/DamPage'));
+const MigratorPage = lazy(() => import('../containers/MigratorPage'));
 const ContentPage = lazy(() => import('../containers/ContentPage'));
 const SettingPage = lazy(() => import('../containers/ItemsPage'));
 const HelpCenterPage = lazy(() => import('../containers/ItemsPage'));
@@ -37,6 +38,11 @@ const mainRoutes = [
     path: '/items-create',
     exact: true,
     main: ({ match }) => <EditItems match={match} />,
+  },
+  {
+    path: ['/migrator/joomla', '/migrator/wordpress'],
+    exact: true,
+    main: ({ match }) => <MigratorPage match={match} />,
   },
   {
     path: '/categories',

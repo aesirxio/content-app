@@ -105,5 +105,10 @@
   "txt_error": "Greška",
   "txt_successfuly":"Uspješno",
   "txt_unsuccess": "Neuspješno",
-  "txt_delete_success": "Uspješno brisanje"
+  "txt_delete_success": "Uspješno brisanje",
+  "txt_migrator": "Migrator",
+  "txt_migrator_wordpress": "Migrator WordPress podataka",
+  "txt_migrator_joomla": "Migrator Joomla podataka",
+  "txt_next_step": "Sljedeći korak",
+  "txt_previous_step": "Prethodni korak"
 }

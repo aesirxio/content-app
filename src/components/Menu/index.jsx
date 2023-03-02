@@ -93,12 +93,24 @@ const Menu = observer((props) => {
       icons_color: '/assets/images/image.png',
       width: 24,
       height: 24,
-      // submenu: [
-      //   {
-      //     text: "txt_menu_overview",
-      //     link: `/data-${dataStreamActive}/audience/overview`,
-      //   },
-      // ],
+    },
+    {
+      text: 'txt_migrator',
+      link: `/migrator`,
+      icons: '/assets/images/image.png',
+      icons_color: '/assets/images/image.png',
+      width: 24,
+      height: 24,
+      submenu: [
+        {
+          text: 'Joomla',
+          link: '/migrator/joomla',
+        },
+        {
+          text: 'Wordpress',
+          link: '/migrator/wordpress',
+        },
+      ],
     },
   ];
 

@@ -53,6 +53,7 @@
     "react-select": "^5.4.0",
     "react-simple-maps": "^3.0.0",
     "react-spinners": "^0.13.6",
+    "react-step-wizard": "^5.3.11",
     "react-table": "^7.6.2",
     "react-timezone-select": "^1.0.7",
     "react-toastify": "^9.0.8",
