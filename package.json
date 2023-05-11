@@ -5,7 +5,7 @@
   "author": "AesirX",
   "repository": "https://github.com/aesirxio/content-app",
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^35.3.2",
+    "@ckeditor/ckeditor5-build-classic": "^37.1.0",
     "@ckeditor/ckeditor5-image": "^35.3.2",
     "@ckeditor/ckeditor5-react": "^5.0.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
