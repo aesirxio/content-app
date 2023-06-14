@@ -26,7 +26,7 @@ const Categories = observer(() => {
             </p>
           </div>
           <Link
-            to="/categories-create"
+            to={(process.env.REACT_APP_INTERGRATION ? '/content' : '') + '/categories-create'}
             className="btn btn-success px-16 py-7px lh-lg text-capitalize fw-semibold rounded-1"
             onClick={() => {}}
           >
