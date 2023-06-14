@@ -2,8 +2,8 @@ import React, { observer } from 'mobx-react';
 import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Icon } from '@iconify/react';
-import history from 'routes/history';
-import { notify } from 'components/Toast';
+import { history } from 'aesirx-uikit';
+import { notify } from 'aesirx-uikit';
 const ItemsFormActionBar = observer(
   class ItemsFormActionBar extends Component {
     constructor(props) {
@@ -76,4 +76,4 @@ const ItemsFormActionBar = observer(
   }
 );
 
-export default withTranslation('common')(ItemsFormActionBar);
+export default withTranslation()(ItemsFormActionBar);

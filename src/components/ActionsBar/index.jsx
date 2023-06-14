@@ -30,4 +30,4 @@ const ActionsBar = ({ t, buttons = [] }) => {
     </div>
   );
 };
-export default withTranslation('common')(ActionsBar);
+export default withTranslation()(ActionsBar);

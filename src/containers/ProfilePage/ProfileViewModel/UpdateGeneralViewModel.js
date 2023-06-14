@@ -2,7 +2,7 @@ import PAGE_STATUS from '../../../constants/PageStatus';
 import { makeAutoObservable } from 'mobx';
 import { notify } from '../../../components/Toast';
 import { UPDATE_GENERAL_FIELD_KEY } from '../../../constants/ProfileModule';
-import { Storage, AUTHORIZATION_KEY } from 'aesirx-dma-lib';
+import { Storage, AUTHORIZATION_KEY } from 'aesirx-lib';
 
 class UpdateGeneralViewModel {
   profileStore = null;

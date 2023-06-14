@@ -166,4 +166,4 @@ const PieChartComponent = ({ data, colors, height, chartTitle, link, ...props })
   );
 };
 
-export default withTranslation('common')(PieChartComponent);
+export default withTranslation()(PieChartComponent);

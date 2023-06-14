@@ -1,8 +1,8 @@
 import React, { Component, lazy } from 'react';
-import Spinner from '../../components/Spinner';
+import { Spinner } from 'aesirx-uikit';
 import SimpleReactValidator from 'simple-react-validator';
 import { observer } from 'mobx-react';
-import { CMS_ITEMS_DETAIL_FIELD_KEY } from 'aesirx-dma-lib';
+import { CMS_ITEMS_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import PAGE_STATUS from 'constants/PageStatus';
 import ItemsStore from './ItemsStore/ItemsStore';
 import ItemsViewModel from './ItemsViewModels/ItemsViewModel';
@@ -303,4 +303,4 @@ const EditItems = observer(
   }
 );
 
-export default withTranslation('common')(withRouter(withItemsViewModel(EditItems)));
+export default withTranslation()(withRouter(withItemsViewModel(EditItems)));

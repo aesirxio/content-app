@@ -121,4 +121,4 @@ function ComponentDatepicker({ isOpen, setIsOpen, datePickerRef, placeholder, is
   );
 }
 
-export default withTranslation('common')(ComponentDatepicker);
+export default withTranslation()(ComponentDatepicker);

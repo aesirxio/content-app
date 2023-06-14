@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap';
 import ItemsStore from './ItemsStore/ItemsStore';
 import { ItemsViewModelContextProvider } from './ItemsViewModels/ItemsViewModelContextProvider';
 import ItemsListViewModel from './ItemsViewModels/ItemsListViewModel';
-import history from 'routes/history';
+import { history } from 'aesirx-uikit';
 
 const List = lazy(() => import('./Component/List'));
 const itemsStore = new ItemsStore();
@@ -18,7 +18,7 @@ const itemsListViewModel = new ItemsListViewModel(itemsStore);
 const Dashboard = observer(() => {
   // const [showModal, setShowModal] = useState(false);
 
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   return (
     <>
       <ItemsViewModelContextProvider viewModel={itemsListViewModel}>

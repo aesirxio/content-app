@@ -23,4 +23,4 @@ const PushlishOptionComponent = ({ validator, formPublish, ...props }) => {
   );
 };
 
-export default withTranslation('common')(PushlishOptionComponent);
+export default withTranslation()(PushlishOptionComponent);

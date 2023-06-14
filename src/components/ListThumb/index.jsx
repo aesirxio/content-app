@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
-import SelectComponent from '../Select';
-import { notify } from 'components/Toast';
+import { AesirXSelect as SelectComponent } from 'aesirx-uikit';
+import { notify } from 'aesirx-uikit';
 import { Button, Dropdown, Modal } from 'react-bootstrap';
 import { faChevronDown, faColumns } from '@fortawesome/free-solid-svg-icons';
 import './index.scss';
@@ -15,7 +15,7 @@ import './index.scss';
 // ];
 
 const ListThumb = ({ selectedMulptiRows, allColumns, listViewModel }) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   const optionAction = [{ value: 'delete', label: t('delete') }];
   const [action, setAction] = useState('');
   const [showPopup, setShowPopup] = useState(false);

@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
 
 const SubmitButton = ({ validateInfoBeforeSending }) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   return (
     <div>
       <div className="d-flex align-items-center row">
@@ -28,4 +28,4 @@ const SubmitButton = ({ validateInfoBeforeSending }) => {
   );
 };
 
-export default withTranslation('common')(SubmitButton);
+export default withTranslation()(SubmitButton);

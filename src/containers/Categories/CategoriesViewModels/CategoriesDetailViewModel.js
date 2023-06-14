@@ -1,8 +1,8 @@
 import { makeAutoObservable } from 'mobx';
-import { CMS_CATE_DETAIL_FIELD_KEY } from 'aesirx-dma-lib';
+import { CMS_CATE_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import PAGE_STATUS from 'constants/PageStatus';
-import { notify } from 'components/Toast';
-import history from 'routes/history';
+import { notify, history } from 'aesirx-uikit';
+
 class CategoriesDetailViewModel {
   categoriesStore = null;
   formStatus = PAGE_STATUS.READY;
