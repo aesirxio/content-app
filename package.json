@@ -3,6 +3,8 @@
   "version": "1.0.1",
   "license": "GPL-3.0-only",
   "author": "AesirX",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "repository": "https://github.com/aesirxio/content-app",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -22,7 +24,6 @@
     "react-i18next": "^12.3.1",
     "react-router-dom": "^5.2.0",
     "react-table": "^7.6.2",
-    "react-tooltip": "^5.13.1",
     "recharts": "^2.6.2",
     "simple-react-validator": "^1.6.0",
     "web-vitals": "^3.3.1"
@@ -36,7 +37,10 @@
     "lint:check": "eslint \"src/**/\"",
     "lint:nowarns": "eslint --quiet \"src/**/\"",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
-    "format:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
+    "format:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "build:lib": "NODE_ENV=production tsup",
+    "dev:lib": "NODE_ENV=development tsup --watch --onSuccess 'yalc push --no-scripts'",
+    "prepublishOnly": "yarn build:lib"
   },
   "eslintConfig": {
     "extends": [
@@ -66,17 +70,25 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "esbuild-plugin-inline-image": "^0.0.9",
+    "esbuild-sass-plugin": "^2.9.0",
+    "esbuild-scss-modules-plugin": "^1.1.1",
     "eslint": "^8.17",
     "git-revision-webpack-plugin": "^5.0.0",
     "prettier": "^2.8.4",
     "react-inject-env": "^2.1.0",
     "react-scripts": "^5.0.1",
     "sass": "^1.52",
-    "serve": "^13.0.2"
+    "serve": "^13.0.2",
+    "tsup": "^6.7.0"
   },
   "resolutions": {
     "bootstrap": "5.2.3",
     "react": "^18",
     "react-dom": "^18"
-  }
+  },
+  "files": [
+    "dist",
+    "public/assets/images"
+  ]
 }

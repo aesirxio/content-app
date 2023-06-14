@@ -1,14 +1,15 @@
 import Modal from 'components/Modal';
 import Select from 'components/Select';
 import React, { useState } from 'react';
-import history from 'routes/history';
+
 import { notify } from 'components/Toast';
+import { historyPush } from 'routes/routes';
 function SelectContentType({ showModal, setShowModal }) {
   const [contentType, setContentType] = useState(null);
   const handleClick = () => {
     if (contentType?.value) {
       setShowModal(false);
-      history.push(`/items-create/${contentType.value}`);
+      historyPush(`/items-create/${contentType.value}`);
     } else {
       notify('Please choose content type of items.', 'error');
     }

@@ -2,7 +2,8 @@ import { makeAutoObservable } from 'mobx';
 import { CMS_ITEMS_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import PAGE_STATUS from 'constants/PageStatus';
 import { notify } from 'aesirx-uikit';
-import { history } from 'aesirx-uikit';
+
+import { historyPush } from 'routes/routes';
 // import history from 'routes/history';
 class ItemsDetailViewModel {
   itemsStore = null;
@@ -83,9 +84,9 @@ class ItemsDetailViewModel {
     if (result?.result) {
       notify('txt_successfuly', 'success');
       if (redirect) {
-        history.push('/');
+        historyPush('/');
       } else {
-        history.push(`/items-edit/${result.id}`);
+        historyPush(`/items-edit/${result.id}`);
       }
     }
     this.formStatus = PAGE_STATUS.READY;
