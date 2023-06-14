@@ -1,4 +1,4 @@
-import { AesirxMemberApiService } from 'aesirx-dma-lib';
+import { AesirxMemberApiService } from 'aesirx-lib';
 import { runInAction } from 'mobx';
 import ProfileModel from '../ProfileModel/ProfileModel';
 

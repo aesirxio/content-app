@@ -1,11 +1,11 @@
 import React from 'react';
-import SelectComponent from '../../components/Select';
+import { AesirXSelect as SelectComponent } from 'aesirx-uikit';
 import './index.scss';
 import { Icon } from '@iconify/react';
 import { useTranslation } from 'react-i18next';
 
 const PaginationComponent = ({ listViewModel, pagination, setPageSize }) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
 
   const handleGoToPage = (i) => {
     listViewModel.handlePagination(

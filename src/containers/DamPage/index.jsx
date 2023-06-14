@@ -6,7 +6,7 @@ import './index.scss';
 
 const Categories = () => {
   const { theme } = useThemeContext();
-  const { i18n } = useTranslation('common');
+  const { i18n } = useTranslation();
   const onSelect = (data) => {
     console.log('onSelectonSelect', data);
   };

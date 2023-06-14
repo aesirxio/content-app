@@ -14,4 +14,4 @@ class Label extends React.Component {
   }
 }
 
-export default withTranslation('common')(Label);
+export default withTranslation()(Label);

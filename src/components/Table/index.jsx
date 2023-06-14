@@ -410,4 +410,4 @@ const Table = ({
   );
 };
 
-export default withTranslation('common')(Table);
+export default withTranslation()(Table);

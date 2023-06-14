@@ -45,4 +45,4 @@ const FieldsComponent = (props) => {
   );
 };
 
-export default withTranslation('common')(FieldsComponent);
+export default withTranslation()(FieldsComponent);

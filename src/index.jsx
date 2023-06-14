@@ -1,11 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './translations/i18n';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-ReactDOM.render(<App />, document.getElementById('root'));
+/*
+ * @copyright   Copyright (C) 2022 AesirX. All rights reserved.
+ * @license     GNU General Public License version 3, see LICENSE.
+ */
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+import React from 'react';
+import * as ReactDOMClient from 'react-dom/client';
+import App from 'App';
+import reportWebVitals from 'reportWebVitals';
+
+const container = document.getElementById('root');
+
+// Create a root.
+const root = ReactDOMClient.createRoot(container);
+
+// Initial render: Render an element to the root.
+root.render(<App />);
+
 reportWebVitals();
+
+if (process.env.NODE_ENV === 'production') {
+  console.log = () => {};
+  console.error = () => {};
+  console.debug = () => {};
+}

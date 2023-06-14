@@ -2,12 +2,12 @@ import Table from 'components/Table';
 import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { useCategoriesViewModel } from '../CategoriesViewModels/CategoriesViewModelContextProvider';
-import Spinner from 'components/Spinner';
+import { Spinner } from 'aesirx-uikit';
 import PAGE_STATUS from 'constants/PageStatus';
 import { useTranslation } from 'react-i18next';
 
 const Categories = observer(({ setEntriesFound }) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   const [dataAction, setDataAction] = useState([]);
   const categoriesViewModel = useCategoriesViewModel();
 

@@ -1,6 +1,6 @@
-import { AesirxContentXCategoryApiService } from 'aesirx-dma-lib';
+import { AesirxContentXCategoryApiService } from 'aesirx-lib';
 import { runInAction } from 'mobx';
-import history from 'routes/history';
+import { history } from 'aesirx-uikit';
 
 export default class CategoriesStore {
   async getList(filters, callbackOnSuccess, callbackOnError) {

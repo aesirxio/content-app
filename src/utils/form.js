@@ -3,18 +3,15 @@ import Label from '../components/Form/Label';
 import { FORM_FIELD_TYPE } from '../constants/FormFieldType';
 import { Form } from 'react-bootstrap';
 import FormAgeField from '../components/Form/FormAgeField';
-import FormLocationField from '../components/Form/FormLocationField';
-import FormEditor from 'components/Form/FormEditor';
+import { FormEditor, CustomizedDatePicker } from 'aesirx-uikit';
 import FormDatePublish from 'components/Form/FormDatePublish';
 
 const FormDateRangePicker = lazy(() => import('../components/Form/FormDateRangePicker'));
-const CustomizedDatePicker = lazy(() => import('../components/DatePicker'));
 const FormImage = lazy(() => import('../components/Form/FormImage'));
 const FormSelection = lazy(() => import('../components/Form/FormSelection'));
 const FormSelectionPersona = lazy(() => import('../components/Form/FormSelectionPersona'));
 const FormInformation = lazy(() => import('../components/FormInformation'));
 const FormSelectDropdown = lazy(() => import('../components/Form/FormSelectDropdown'));
-const FormPriceField = lazy(() => import('../components/Form/FormPriceField'));
 const FormRadio = lazy(() => import('../components/Form/FormRadio'));
 
 const Input = lazy(() => import('../components/Form/Input'));
@@ -239,24 +236,6 @@ const renderingGroupFieldHandler = (group, validator) => {
                 </Form.Group>
               );
 
-            case FORM_FIELD_TYPE.PRICE:
-              return (
-                <Form.Group key={field.key} className={`mb-24 ${className}`}>
-                  <Label
-                    labelClassName={field.labelClassName}
-                    text={field.label}
-                    required={field.required ?? false}
-                  />
-
-                  <FormPriceField key={field.key} field={field} validator={validator} />
-
-                  {field.validation &&
-                    validator.message(field.label, field.value, field.validation, {
-                      className: 'text-danger',
-                    })}
-                </Form.Group>
-              );
-
             case FORM_FIELD_TYPE.AGE:
               return (
                 <Form.Group key={Math.random(40, 200)} className={`mb-24 ${className}`}>
@@ -268,22 +247,6 @@ const renderingGroupFieldHandler = (group, validator) => {
                   <FormAgeField field={field} />
                   {field.validation &&
                     validator.message(field.label, field.valueFrom, field.validation, {
-                      className: 'text-danger',
-                    })}
-                </Form.Group>
-              );
-
-            case FORM_FIELD_TYPE.LOCATION:
-              return (
-                <Form.Group key={Math.random(40, 200)} className={`mb-24 ${className}`}>
-                  <Label
-                    labelClassName={field.labelClassName}
-                    text={field.label}
-                    required={field.required ?? false}
-                  />
-                  <FormLocationField field={field} />
-                  {field.validation &&
-                    validator.message(field.label, field.value, field.validation, {
                       className: 'text-danger',
                     })}
                 </Form.Group>

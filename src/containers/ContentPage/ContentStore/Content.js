@@ -1,5 +1,5 @@
 import { runInAction } from 'mobx';
-import history from 'routes/history';
+import { history } from 'aesirx-uikit';
 
 export default class ContentStore {
   async getList(callbackOnSuccess, callbackOnError) {

@@ -1,7 +1,7 @@
 import React, { observer } from 'mobx-react';
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Storage } from 'aesirx-dma-lib';
+import { Storage } from 'aesirx-lib';
 import 'react-datepicker/dist/react-datepicker.css';
 import { withTranslation } from 'react-i18next';
 import SimpleReactValidator from 'simple-react-validator';
@@ -269,4 +269,4 @@ const UpdateGeneral = observer(
   }
 );
 
-export default withTranslation('common')(witheProfileViewModel(UpdateGeneral));
+export default withTranslation()(witheProfileViewModel(UpdateGeneral));

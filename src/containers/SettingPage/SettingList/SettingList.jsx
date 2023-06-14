@@ -238,4 +238,4 @@ const SettingList = observer(
   }
 );
 
-export default withTranslation('common')(withRouter(SettingList));
+export default withTranslation()(withRouter(SettingList));

@@ -86,4 +86,4 @@ class ConnectChannel extends React.Component {
   }
 }
 
-export default withTranslation('common')(ConnectChannel);
+export default withTranslation()(ConnectChannel);

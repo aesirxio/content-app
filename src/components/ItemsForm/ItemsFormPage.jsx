@@ -16,7 +16,7 @@ const ItemsFormPage = ({
   // formPublish,
   isEdit,
 }) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { runInAction } from 'mobx';
-import { AesirxContentXItemsApiService } from 'aesirx-dma-lib';
+import { AesirxContentXItemsApiService } from 'aesirx-lib';
 
 export default class ItemsStore {
   // List Page

@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import PAGE_STATUS from 'constants/PageStatus';
-import { notify } from 'components/Toast';
+import { notify } from 'aesirx-uikit';
 class ContentListViewModel {
   contentStore = null;
   formStatus = PAGE_STATUS.READY;
