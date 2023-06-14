@@ -1,9 +1,11 @@
-import React, { observer } from 'mobx-react';
+import React from 'react';
+import { observer } from 'mobx-react';
 import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Icon } from '@iconify/react';
-import { history } from 'aesirx-uikit';
 import { notify } from 'aesirx-uikit';
+import { historyPush } from 'routes/routes';
+
 const ItemsFormActionBar = observer(
   class ItemsFormActionBar extends Component {
     constructor(props) {
@@ -27,7 +29,7 @@ const ItemsFormActionBar = observer(
       return (
         <div className="d-flex">
           <button
-            onClick={() => history.push(path ?? '/')}
+            onClick={() => historyPush(path ?? '/')}
             className="btn btn-outline-secondary px-16 py-11 text-capitalize border rounded-1 me-16 text-danger bg-white d-flex align-items-center"
           >
             <Icon className="me-10" icon="iconoir:cancel" width={24} height={24} />

@@ -1,5 +1,6 @@
 import { runInAction } from 'mobx';
-import { history } from 'aesirx-uikit';
+
+import { historyPush } from 'routes/routes';
 
 export default class ContentStore {
   async getList(callbackOnSuccess, callbackOnError) {
@@ -111,7 +112,7 @@ export default class ContentStore {
       });
       setTimeout(() => {
         if (redirect) {
-          history.push('/content');
+          historyPush('/content');
         }
       }, 2000);
     } else {
@@ -136,7 +137,7 @@ export default class ContentStore {
         });
         setTimeout(() => {
           if (redirect) {
-            history.push('/content');
+            historyPush('/content');
           }
         }, 2000);
       } else {

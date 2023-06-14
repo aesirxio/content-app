@@ -38,4 +38,13 @@ const profileMenu = [
   },
 ];
 
-export { profileMenu, mainMenu, settingMenu };
+const integrationMenu = () => {
+  return mainMenu
+    .filter((item) => item.link !== '/dam')
+    .map((item) => {
+      item.link = '/content' + item.link;
+      return item;
+    });
+};
+
+export { profileMenu, mainMenu, settingMenu, integrationMenu };

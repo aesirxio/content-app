@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ComponentImage from '../../ComponentImage';
+import { Image as ComponentImage } from 'aesirx-uikit';
 import styles from './index.module.scss';
 import { ModalDAMComponent } from 'aesirx-uikit';
 
