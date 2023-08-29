@@ -86,7 +86,14 @@
   "resolutions": {
     "bootstrap": "5.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tough-cookie": "^4",
+    "semver": "^7",
+    "jsdom": "^16",
+    "nth-check": "^2",
+    "postcss": "^8",
+    "json5": "^2",
+    "minimatch": "^5"
   },
   "files": [
     "dist",
