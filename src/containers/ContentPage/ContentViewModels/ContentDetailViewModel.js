@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx';
-import { CMS_CONTENT_DETAIL_FIELD_KEY } from 'aesirx-dma-lib';
+import { CMS_CONTENT_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import PAGE_STATUS from 'constants/PageStatus';
-import { notify } from 'components/Toast';
-import history from 'routes/history';
+import { notify } from 'aesirx-uikit';
+import { historyPush } from 'routes/routes';
+
 class ContentDetailViewModel {
   contentStore = null;
   formStatus = PAGE_STATUS.READY;
@@ -76,7 +77,7 @@ class ContentDetailViewModel {
 
   handleEdit = async (value) => {
     this.formStatus = PAGE_STATUS.LOADING;
-    history.push(`/content-edit/${value?.id}`);
+    historyPush(`/content-edit/${value?.id}`);
     setTimeout(() => {
       this.formStatus = PAGE_STATUS.READY;
     }, 1500);

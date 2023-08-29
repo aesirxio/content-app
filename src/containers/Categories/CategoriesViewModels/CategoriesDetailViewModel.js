@@ -1,8 +1,9 @@
 import { makeAutoObservable } from 'mobx';
-import { CMS_CATE_DETAIL_FIELD_KEY } from 'aesirx-dma-lib';
+import { CMS_CATE_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import PAGE_STATUS from 'constants/PageStatus';
-import { notify } from 'components/Toast';
-import history from 'routes/history';
+import { notify } from 'aesirx-uikit';
+import { historyPush } from 'routes/routes';
+
 class CategoriesDetailViewModel {
   categoriesStore = null;
   formStatus = PAGE_STATUS.READY;
@@ -67,7 +68,7 @@ class CategoriesDetailViewModel {
 
   handleEdit = async (value) => {
     this.formStatus = PAGE_STATUS.LOADING;
-    history.push(`/categories-edit/${value?.id}`);
+    historyPush(`/categories-edit/${value?.id}`);
     setTimeout(() => {
       this.formStatus = PAGE_STATUS.READY;
     }, 1500);

@@ -30,4 +30,4 @@ const DateRangePicker = (props) => {
   );
 };
 
-export default withTranslation('common')(DateRangePicker);
+export default withTranslation()(DateRangePicker);

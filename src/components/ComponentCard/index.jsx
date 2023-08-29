@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import SelectComponent from 'components/Select';
+import { AesirXSelect as SelectComponent } from 'aesirx-uikit';
 import PulseLoaderComponent from 'components/Spinner/pulseLoader';
 import PAGE_STATUS from 'constants/PageStatus';
 const ComponentCard = ({

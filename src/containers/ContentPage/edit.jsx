@@ -1,5 +1,5 @@
 import React, { Component, lazy } from 'react';
-import Spinner from '../../components/Spinner';
+import { Spinner } from 'aesirx-uikit';
 import SimpleReactValidator from 'simple-react-validator';
 import { observer } from 'mobx-react';
 import PAGE_STATUS from 'constants/PageStatus';
@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { FORM_FIELD_TYPE } from 'constants/FormFieldType';
 import { Form } from 'react-bootstrap';
-import { CMS_CONTENT_DETAIL_FIELD_KEY } from 'aesirx-dma-lib';
+import { CMS_CONTENT_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import ContentStore from './ContentStore/Content';
 import ContentViewModel from './ContentViewModels/ContentViewModel';
 import {
@@ -227,4 +227,4 @@ const EditContentGroup = observer(
   }
 );
 
-export default withTranslation('common')(withRouter(withContentViewModel(EditContentGroup)));
+export default withTranslation()(withRouter(withContentViewModel(EditContentGroup)));

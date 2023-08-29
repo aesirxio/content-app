@@ -12,7 +12,7 @@ const ContentPage = lazy(() => import('./Component/ContentPage'));
 const contentStore = new ContentStore();
 const contentViewModel = new ContentViewModel(contentStore);
 const Categories = observer(() => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   const [filterTab, setFilterTab] = useState('');
   const [entriesFound, setEntriesFound] = useState(0);
   return (

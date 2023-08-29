@@ -14,7 +14,7 @@ const categoriesViewModel = new CategoriesViewModel(categoriesStore);
 
 const Categories = observer(() => {
   const [entriesFound, setEntriesFound] = useState(0);
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   return (
     <CategoriesViewModelContextProvider viewModel={categoriesViewModel}>
       <div className="py-4 px-2rem h-100 d-flex flex-column">
@@ -26,7 +26,7 @@ const Categories = observer(() => {
             </p>
           </div>
           <Link
-            to="/categories-create"
+            to={(process.env.REACT_APP_INTERGRATION ? '/content' : '') + '/categories-create'}
             className="btn btn-success px-16 py-7px lh-lg text-capitalize fw-semibold rounded-1"
             onClick={() => {}}
           >

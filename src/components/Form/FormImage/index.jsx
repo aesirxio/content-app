@@ -1,11 +1,12 @@
 import { Icon } from '@iconify/react';
-import React, { lazy, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ComponentImage from '../../ComponentImage';
+import { Image as ComponentImage } from 'aesirx-uikit';
 import styles from './index.module.scss';
-const ModalDAMComponent = lazy(() => import('components/ModalDamComponent'));
+import { ModalDAMComponent } from 'aesirx-uikit';
+
 const FormImage = ({ field, hiddenDelete = false }) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [file, setFile] = useState(field.value);
   const onSelect = (data) => {

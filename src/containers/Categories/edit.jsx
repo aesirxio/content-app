@@ -1,9 +1,9 @@
 import React, { Component, lazy } from 'react';
-import Spinner from '../../components/Spinner';
+import { Spinner } from 'aesirx-uikit';
 import SimpleReactValidator from 'simple-react-validator';
 import { observer } from 'mobx-react';
 
-import { CMS_CATE_DETAIL_FIELD_KEY } from 'aesirx-dma-lib';
+import { CMS_CATE_DETAIL_FIELD_KEY } from 'aesirx-lib';
 import PAGE_STATUS from 'constants/PageStatus';
 import { withRouter } from 'react-router-dom';
 import { FORM_FIELD_TYPE } from 'constants/FormFieldType';
@@ -363,4 +363,4 @@ const EditCategories = observer(
   }
 );
 
-export default withTranslation('common')(withRouter(withCategoriesViewModel(EditCategories)));
+export default withTranslation()(withRouter(withCategoriesViewModel(EditCategories)));

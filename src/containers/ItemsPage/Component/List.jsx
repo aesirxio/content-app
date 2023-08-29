@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { useItemsViewModel } from '../ItemsViewModels/ItemsViewModelContextProvider';
 import PAGE_STATUS from 'constants/PageStatus';
-import Spinner from 'components/Spinner';
-import history from 'routes/history';
+import { Spinner } from 'aesirx-uikit';
+
 import { useTranslation } from 'react-i18next';
+import { historyPush } from 'routes/routes';
 // import TabBarComponent from 'components/TabBarComponent';
 
 const List = observer(() => {
@@ -22,9 +23,9 @@ const List = observer(() => {
   // };
 
   const handleEdit = (id) => {
-    history.push(`/items-edit/${id}`);
+    historyPush(`/items-edit/${id}`);
   };
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   const columnsTable = React.useMemo(
     () => [
       {

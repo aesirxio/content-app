@@ -9,7 +9,8 @@ import { Button } from 'react-bootstrap';
 import ItemsStore from './ItemsStore/ItemsStore';
 import { ItemsViewModelContextProvider } from './ItemsViewModels/ItemsViewModelContextProvider';
 import ItemsListViewModel from './ItemsViewModels/ItemsListViewModel';
-import history from 'routes/history';
+
+import { historyPush } from 'routes/routes';
 
 const List = lazy(() => import('./Component/List'));
 const itemsStore = new ItemsStore();
@@ -18,7 +19,7 @@ const itemsListViewModel = new ItemsListViewModel(itemsStore);
 const Dashboard = observer(() => {
   // const [showModal, setShowModal] = useState(false);
 
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   return (
     <>
       <ItemsViewModelContextProvider viewModel={itemsListViewModel}>
@@ -32,7 +33,7 @@ const Dashboard = observer(() => {
             <Button
               variant={'success'}
               className="btn btn-success px-16 py-7px lh-lg text-capitalize fw-semibold rounded-1 text-capitalize fw-semibold rounded-1"
-              onClick={() => history.push('/items-create')}
+              onClick={() => historyPush('/items-create')}
             >
               <Icon icon="akar-icons:plus" width={24} height={24} className="me-1" />
               {t('txt_add_new_item')}

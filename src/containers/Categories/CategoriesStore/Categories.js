@@ -1,6 +1,7 @@
-import { AesirxContentXCategoryApiService } from 'aesirx-dma-lib';
+import { AesirxContentXCategoryApiService } from 'aesirx-lib';
 import { runInAction } from 'mobx';
-import history from 'routes/history';
+
+import { historyPush } from 'routes/routes';
 
 export default class CategoriesStore {
   async getList(filters, callbackOnSuccess, callbackOnError) {
@@ -58,9 +59,9 @@ export default class CategoriesStore {
           callbackOnSuccess(respondedData);
         });
         if (redirect) {
-          history.push('/categories');
+          historyPush('/categories');
         } else {
-          history.push(`/categories-edit/${respondedData?.id}`);
+          historyPush(`/categories-edit/${respondedData?.id}`);
         }
       } else {
         runInAction(() => {
@@ -85,7 +86,7 @@ export default class CategoriesStore {
         callbackOnSuccess(respondedData);
       });
       if (redirect) {
-        history.push('/categories');
+        historyPush('/categories');
       }
     } else {
       runInAction(() => {

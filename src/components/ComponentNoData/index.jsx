@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import './index.scss';
 import { withTranslation } from 'react-i18next';
-import ComponentImage from 'components/ComponentImage';
+import { Image as ComponentImage } from 'aesirx-uikit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -51,4 +51,4 @@ class ComponentNoData extends Component {
   }
 }
 
-export default withTranslation('common')(ComponentNoData);
+export default withTranslation()(ComponentNoData);
